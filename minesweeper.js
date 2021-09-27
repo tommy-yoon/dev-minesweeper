@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', startGame)
 const numOfRows = 5;
 const numOfColums = 5;
-const numOfMines = 1; // If it is 0, a random number is generated 
+const numOfMines = 0; // If it is 0, a random number is generated 
 
 // Define your `board` object here!
 var board = {
