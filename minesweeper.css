@@ -25,6 +25,11 @@ body {
   padding-bottom: 20px;
 }
 
+#credits {
+  background-color: gainsboro;
+  padding: 10px;
+}
+
 .board {
   display: flex;
   flex-wrap: wrap;

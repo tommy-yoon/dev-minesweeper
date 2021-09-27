@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Minesweeper</title>
-    <link rel="stylesheet" href="minesweeper.css">
-    <script src="lib/tests.js"></script>
-    <script src="lib/lib.js"></script>
-    <script src="minesweeper.js"></script>
-  </head>
-  <body>
-    <div id="message"></div>
-    <div id="notes"></div>
-    <div id="board" class="board"></div>
-    <div id="buttons"><input id="restartButton" type="button" value="Restart"></div>
-    <div id="credits">
-      This page uses these sounds from freesound:<br>
-      "UI Confirmation Alert, C5.wav" by InspectorJ (www.jshaw.co.uk) (<a href='https://freesound.org/people/InspectorJ/sounds/403018/'>link</a>) licensed under CCBY 3.0<br>
-      "Explosion" by Iwiploppenisse (<a href='https://freesound.org/people/Iwiploppenisse/sounds/156031/'>link</a>) licensed under CCBY 3.0<br>
-      "Fanfare" by bone666138 (<a href='https://freesound.org/people/bone666138/sounds/198874/'>link</a>) licensed under CCBY 3.0<br>
-      "Chess Puzzle Blitz SFX » Board Start.mp3" by el_boss (<a href='https://freesound.org/people/el_boss/sounds/546121/'>link</a>) licensed under CCBY 3.0<br>
-    </div>
-  </body>
-  <audio id="clickSound">
-    <source src="/sound/403018__inspectorj__ui-confirmation-alert-c5.wav"></source>
-  </audio>
-  <audio id="resetSound">
-    <source src="/sound/546121__el-boss__board-start.mp3"></source>
-  </audio>
-  <audio id="boomSound">
-    <source src="/sound/156031__iwiploppenisse__explosion.mp3"></source>
-  </audio>
-  <audio id="winSound">
-    <source src="/sound/198874__bone666138__fanfare.wav"></source>
-  </audio>
+
+<head>
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="minesweeper.css">
+  <script src="lib/tests.js"></script>
+  <script src="lib/lib.js"></script>
+  <script src="minesweeper.js"></script>
+</head>
+
+<body>
+  <div id="message"></div>
+  <div id="notes"></div>
+  <div id="board" class="board"></div>
+  <div id="buttons"><input id="restartButton" type="button" value="Restart"></div>
+  <div id="credits">
+    This page uses these sounds from freesound:<br>
+    "UI Confirmation Alert, C5.wav" by InspectorJ (www.jshaw.co.uk) (<a
+      href='https://freesound.org/people/InspectorJ/sounds/403018/'>link</a>) licensed under CCBY 3.0<br>
+    "Explosion" by Iwiploppenisse (<a href='https://freesound.org/people/Iwiploppenisse/sounds/156031/'>link</a>)
+    licensed under CCBY 3.0<br>
+    "Fanfare" by bone666138 (<a href='https://freesound.org/people/bone666138/sounds/198874/'>link</a>) licensed under
+    CCBY 3.0<br>
+    "Chess Puzzle Blitz SFX » Board Start.mp3" by el_boss (<a
+      href='https://freesound.org/people/el_boss/sounds/546121/'>link</a>) licensed under CCBY 3.0<br>
+  </div>
+</body>
+<audio id="clickSound">
+  <source src="/sound/403018__inspectorj__ui-confirmation-alert-c5.wav">
+  </source>
+</audio>
+<audio id="resetSound">
+  <source src="/sound/546121__el-boss__board-start.mp3">
+  </source>
+</audio>
+<audio id="boomSound">
+  <source src="/sound/156031__iwiploppenisse__explosion.mp3">
+  </source>
+</audio>
+<audio id="winSound">
+  <source src="/sound/198874__bone666138__fanfare.wav">
+  </source>
+</audio>
+
 </html>
