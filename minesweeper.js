@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', startGame)
-const numOfRows = 6;
-const numOfColums = 6;
-const numOfMines = 9;
+const numOfRows = 5;
+const numOfColums = 5;
+const numOfMines = 1; // If it is 0, a random number is generated 
 
 // Define your `board` object here!
 var board = {
@@ -9,6 +9,32 @@ var board = {
 }
 
 function startGame() {
+  // add event handlers
+  // document.addEventListener('click', checkForWin);
+  // document.addEventListener('contextmenu', checkForWin);
+  addBoardEventListeners();
+  document.getElementById("restartButton").addEventListener('click', restart);
+  // create a new board
+  createBoard();
+  // Don't remove this function call: it makes the game work!
+  lib.initBoard()
+}
+
+function addBoardEventListeners() {
+  document.getElementById("board").addEventListener('click', checkForWin);
+  document.getElementById("board").addEventListener('contextmenu', checkForWin);
+}
+
+function restart() {
+  document.getElementById("resetSound").play();
+  createBoard();
+  addBoardEventListeners();
+  lib.initBoard();
+}
+
+function createBoard() {
+  // Initialized cells
+  board.cells = [];
   // Decide which cell will be mined
   let minedCells = plantMines(numOfRows * numOfColums, numOfMines);
   // filling the board's cells
@@ -17,26 +43,21 @@ function startGame() {
       board.cells.push({
         row: i,
         col: j,
-        isMine: minedCells.includes(i*numOfRows+j)?true:false,
+        isMine: minedCells.includes(i * numOfRows + j) ? true : false,
         hidden: true,
         isMarked: false,
         surroundingMines: 0,
-      })
+      });
     }
   }
   // Counting the Boom
   board.cells.forEach(cell => {
     cell.surroundingMines = countSurroundingMines(cell);
   });
-  // add event handlers
-  document.addEventListener('click', checkForWin);
-  document.addEventListener('contextmenu', checkForWin);
-  // Don't remove this function call: it makes the game work!
-  lib.initBoard()
 }
 
 function plantMines(totalNum, mineNum) {
-  let mineCounter = mineNum;
+  let mineCounter = mineNum > 0 ? totalNum > mineNum ? mineNum: totalNum - 1 : Math.floor(Math.random()*(totalNum-1))+1;
   let arr = [];
   while (mineCounter > 0) {
     let rn = Math.floor(Math.random() * totalNum);
@@ -54,12 +75,16 @@ function checkForWin() {
   if (allNonMinesVisible(board.cells) && allMinesMarked(board.cells)) {
     // You can use this function call to declare a winner (once you've
     // detected that they've won, that is!)
+    document.getElementById("winSound").play();
     lib.displayMessage('You win!');
+    lib.removeListeners ();
   }
-
 }
 
 function allNonMinesVisible(cells) {
+  if (cells == undefined || cells.length == 0) {
+    return false;
+  }
   console.log('allNonMinesVisible');
   for (let i = 0; i < cells.length; i++) {
     const cell = cells[i];
@@ -70,12 +95,15 @@ function allNonMinesVisible(cells) {
     }
   }
   // cells.forEach(cell => {
-  // });
-  console.log('All non-mines are visible.')
-  return true;
-}
-
+    // });
+    console.log('All non-mines are visible.')
+    return true;
+  }
+  
 function allMinesMarked(cells) {
+  if (cells == undefined || cells.length == 0) {
+    return false;
+  }
   console.log('allMinesMarked');
   for (let i = 0; i < cells.length; i++) {
     const cell = cells[i];

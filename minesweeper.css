@@ -10,14 +10,19 @@ body {
   flex-direction: column;
 }
 
-#message, #notes {
+#message, #notes, #buttons   {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#message {
+#message, #buttons {
   font-size: 1.5rem;
+}
+
+#buttons {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .board {
