@@ -61,26 +61,32 @@ function checkForWin() {
 
 function allNonMinesVisible(cells) {
   console.log('allNonMinesVisible');
-  cells.forEach(cell => {
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
     console.log(cell.row, cell.col, cell.isMine, cell.hidden, cell.isMarked);
     if (!cell.isMine && cell.hidden) {
       console.log('FALSE:',cell.row, cell.col, cell.isMine, cell.hidden, cell.isMarked);
       return false;
     }
-  });
+  }
+  // cells.forEach(cell => {
+  // });
   console.log('All non-mines are visible.')
   return true;
 }
 
 function allMinesMarked(cells) {
   console.log('allMinesMarked');
-  cells.forEach(cell => {
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
     console.log(cell.row, cell.col, cell.isMine, cell.hidden, cell.isMarked);
     if (cell.isMine && !cell.isMarked) {
       console.log('FALSE:', cell.row, cell.col, cell.isMine, cell.hidden, cell.isMarked);
       return false;
     }
-  });
+  }
+  // cells.forEach(cell => {
+  // });
   console.log('All mines are marked.')
   return true;
 }
