@@ -26,6 +26,7 @@ function addBoardEventListeners() {
 }
 
 function restart() {
+  document.getElementById("resetSound").load();
   document.getElementById("resetSound").play();
   createBoard();
   addBoardEventListeners();
@@ -75,6 +76,7 @@ function checkForWin() {
   if (allNonMinesVisible(board.cells) && allMinesMarked(board.cells)) {
     // You can use this function call to declare a winner (once you've
     // detected that they've won, that is!)
+    document.getElementById("winSound").load();
     document.getElementById("winSound").play();
     lib.displayMessage('You win!');
     lib.removeListeners ();
